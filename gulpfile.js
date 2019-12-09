@@ -1,22 +1,16 @@
-var gulp=require('gulp');
-var useref=require('gulp-useref');/*合并文件*/
-var uglify=require('gulp-uglify');/*压缩js*/
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
-// var rev=require('gulp-rev');/*给文件用哈希码添加版本号*/
-// var revReplace=require('gulp-rev-replace');/*更新引用*/
-// var filter=require('gulp-filter');/*过滤器：筛选，恢复*/
-// var csso=require('gulp-csso');/*压缩css*/
- 
-gulp.task('default', () => {
-    return gulp.src('./lin_js/*.js')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
-        .pipe(concat('lin.js'))
-        .pipe(useref())
-        .pipe(uglify())
-        .pipe(gulp.dest('dest'));
-});
+const { 
+	src, dest 
+} = require('gulp');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
 
-// gulp-useref gulp-uglify gulp-babel gulp-concat gulp-rev gulp-rev-replace gulp-filter gulp-csso babel-preset-es2015
+exports.default = function(){
+	return src('./lin_js/*.js')		// 路径问题：gulpfile.js为路径的起点。此路径表示js文件下的所有js文件。
+		.pipe(babel({
+			 presets: ['@babel/env']//es6转es5
+		}))
+		.pipe(concat('lin.js'))		//合并成的js文件名称
+	    .pipe(uglify())				//压缩
+	    .pipe(dest('dist'));		//打包压缩在build目录下。
+}
