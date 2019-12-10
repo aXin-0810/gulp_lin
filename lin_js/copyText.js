@@ -29,7 +29,7 @@ function btn_copyText() {
 		}else{
 			//使用插件
 			//调用插件使用插件方法
-			$.getScript("http://m.elletter.com/lin/clipboard2.0.js", function() {
+			$.getScript("http://module.zayh1314520.com/js/clipboard2.0.js", function() {
 				var copeVals = "";
 				//分割数组内class
 				var clipboard = new ClipboardJS(classStr, {
