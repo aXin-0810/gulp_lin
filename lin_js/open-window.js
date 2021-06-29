@@ -19,5 +19,5 @@ export default function openWindow(url, title, w, h) {
   // 将焦点放在新窗口上
   if (window.focus) {
     newWindow.focus()
-  }
-}
+  };
+};
