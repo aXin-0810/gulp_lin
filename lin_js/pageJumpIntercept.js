@@ -73,6 +73,7 @@ export function backTo(url_, parameter = '', num_ = 1) {
           // 跳转指定页面
           location.href = backUrl;
         });
+        
       }
     } else {
 
@@ -90,6 +91,7 @@ export function backTo(url_, parameter = '', num_ = 1) {
         // 返回上一页
         window.history.back();
       });
+      
     };
   };
 };
